@@ -1,0 +1,27 @@
+h1 {
+    font-size: 24px;
+    font-size: max(24px, 3vw);
+    margin: 0 auto;
+    text-align: center;
+}
+  
+a, a:visited {
+    color: rgb(86, 148, 240);
+    text-decoration: none;
+}
+  
+.textWrapper {
+    margin: 0 auto;
+}
+  
+.subTitle {
+    text-align: center;
+    font-size: 12px;
+    font-size: max(12px, 1.2vw);
+}
+  
+#instructions {
+    color: rgb(172, 172, 172);
+    font-size: 10px;
+    font-size: max(10px, 1vw);
+}
