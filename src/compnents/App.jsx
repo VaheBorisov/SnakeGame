@@ -1,7 +1,7 @@
 import './App.css';
 import SnakeGame from "./SnakeGame";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -16,6 +16,4 @@ function App() {
       <SnakeGame />
     </div>
   );
-}
-
-export default App;
+};

@@ -13,7 +13,7 @@ export default class SnakeGame extends React.Component {
       height: 0,
       blockWidth: 0,
       blockHeight: 0,
-      gameLoopTimeout: 60,
+      gameLoopTimeout: 70,
       timeoutId: 0,
       startSnakeSize: 0,
       snake: [],
@@ -143,7 +143,7 @@ export default class SnakeGame extends React.Component {
       direction: 'right',
       directionChanged: false,
       isGameOver: false,
-      gameLoopTimeout: 60,
+      gameLoopTimeout: 70,
       snakeColor: '#51f542',
       appleColor: 'red',
       score: 0,
@@ -173,7 +173,6 @@ export default class SnakeGame extends React.Component {
     let snake = this.state.snake;
     let apple = this.state.apple;
 
-    // if the snake's head is on an apple
     if (snake[0].Xpos === apple.Xpos && snake[0].Ypos === apple.Ypos) {
       let width = this.state.width;
       let height = this.state.height;
@@ -184,10 +183,8 @@ export default class SnakeGame extends React.Component {
       let newHighScore = this.state.newHighScore;
       let gameLoopTimeout = this.state.gameLoopTimeout;
 
-      // increase snake size
       snake.push(newTail);
 
-      // create another apple
       apple.Xpos =
         Math.floor(Math.random() * ((width - blockWidth) / blockWidth + 1)) *
         blockWidth;
@@ -204,14 +201,12 @@ export default class SnakeGame extends React.Component {
           ) * blockHeight;
       }
 
-      // increment high score if needed
       if (this.state.score === highScore) {
         highScore++;
         localStorage.setItem('snakeHighScore', highScore);
         newHighScore = true;
       }
 
-      // decrease the game loop timeout
       if (gameLoopTimeout > 25) gameLoopTimeout -= 0.5;
 
       this.setState({
@@ -296,7 +291,6 @@ export default class SnakeGame extends React.Component {
   }
 
   handleKeyDown(event) {
-    // if spacebar is pressed to run a new game
     if (this.state.isGameOver && event.keyCode === 32) {
       this.resetGame()
       return
@@ -366,7 +360,7 @@ export default class SnakeGame extends React.Component {
         style={{
           width: this.state.width,
           height: this.state.height,
-          borderWidth: this.state.width / 50,
+          borderWidth: this.state.width / 72,
         }}
       >
         {this.state.snake.map((snakePart, index) => {
